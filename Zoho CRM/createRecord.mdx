@@ -1,0 +1,38 @@
+# Create records in Zoho CRM
+
+In Zoho CRM, scripts are created when we need to perform very specific actions that low-code solutions cannot address. 
+In these cases, we can create new records in any module, provided we fill in the required fields (through mapping)for those entries and follow the 
+specifications for each module.
+
+You can also fill in fields that are not mandatory.
+
+
+```javascript
+
+
+Create a record:
+
+//Argument Mapping: accountId = Account.Account Id
+
+account = zoho.crm.getRecordById("Accounts",accountId);
+account_name = account.get("Account_Name");
+owner = account.get("Owner");
+invoicing = account.get("invoicing");
+currentDate = today;
+
+if(invoicing > 1000000)
+{
+	mp = Map();
+	mp.put("Layout",xxxxxxxxxxxxxxxxxxx); 
+	//If you have more than one layout in your module, you need to identify it in the mapping using the ID.
+    mp.put("Pipeline", "Prospection");
+	mp.put("Deal_Name", account_name + );
+	mp.put("Stage","Start");
+	mp.put("Account_Name",accountId);
+	mp.put("Owner",proprietario);
+	mp.put("Amount",invoicing.toNumber());
+	mp.put("Closing_forecast",currentDate.addMonth(6));
+    mp.put("Description", "Automatically created Deal")
+	create = zoho.crm.createRecord("Deals",mp);
+	info create;
+}
