@@ -8,9 +8,6 @@ In this example, I created a script that acts as an action in a workflow. In thi
 
 ```javascript
 
-
-Update a record:
-
 //Argument Mapping: dealId = Deals.Deals Id
 
 deal = zoho.crm.getRecordById("Deals",dealId);
@@ -38,3 +35,4 @@ else if (clientType == "Old")
 	update = zoho.crm.updateRecord("Deals",dealId,mp);
 	info update;
 }
+```
