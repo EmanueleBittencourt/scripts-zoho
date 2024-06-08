@@ -16,23 +16,21 @@ clientType = deal.get("Client_Type");
 if(clientType == "New")
 {   
     amount = deal.get("Amount);
-	commission = amount * (10/100);
-
+    commission = amount * (10/100);
     mp = Map();
-	mp.put("Commission", commission);
+    mp.put("Commission", commission);
     mp.put("Description", "Commission calculated with 10%");
-	update = zoho.crm.updateRecord("Deals",dealId,mp);
-	info update;
+    update = zoho.crm.updateRecord("Deals",dealId,mp);
+    info update;
 }
 else if (clientType == "Old")
 {
     amount = deal.get("Amount);
-	commission = amount * (20/100);
-
+    commission = amount * (20/100);
     mp = Map();
-	mp.put("Commission", commission);
+    mp.put("Commission", commission);
     mp.put("Description", "Commission calculated with 20%");
-	update = zoho.crm.updateRecord("Deals",dealId,mp);
-	info update;
+    update = zoho.crm.updateRecord("Deals",dealId,mp);
+    info update;
 }
 ```
