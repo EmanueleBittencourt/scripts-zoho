@@ -1,0 +1,40 @@
+# Update records in Zoho CRM
+
+In Zoho CRM, you can update records using scripts, which is essential when you need to perform verifications or apply criteria that low-code cannot address.
+
+To update a record, it is necessary to create a mapping with the field you want to update.
+
+In this example, I created a script that acts as an action in a workflow. In this way, there is a trigger that obtains the ID of my record through argument mapping.
+
+```javascript
+
+
+Update a record:
+
+//Argument Mapping: dealId = Deals.Deals Id
+
+deal = zoho.crm.getRecordById("Deals",dealId);
+clientType = deal.get("Client_Type");
+
+if(clientType == "New")
+{   
+    amount = deal.get("Amount);
+	commission = amount * (10/100);
+
+    mp = Map();
+	mp.put("Commission", commission);
+    mp.put("Description", "Commission calculated with 10%");
+	update = zoho.crm.updateRecord("Deals",dealId,mp);
+	info update;
+}
+else if (clientType == "Old")
+{
+    amount = deal.get("Amount);
+	commission = amount * (20/100);
+
+    mp = Map();
+	mp.put("Commission", commission);
+    mp.put("Description", "Commission calculated with 20%");
+	update = zoho.crm.updateRecord("Deals",dealId,mp);
+	info update;
+}

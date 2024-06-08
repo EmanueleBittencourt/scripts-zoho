@@ -32,7 +32,7 @@ if(invoicing > 1000000)
 	mp.put("Owner",proprietario);
 	mp.put("Amount",invoicing.toNumber());
 	mp.put("Closing_forecast",currentDate.addMonth(6));
-    mp.put("Description", "Automatically created Deal")
+    mp.put("Description", "Automatically created Deal");
 	create = zoho.crm.createRecord("Deals",mp);
 	info create;
 }
